@@ -35,8 +35,8 @@ Keep the bottom 17% clear of load-bearing content. Use flat paper-like surfaces,
 Adapt: keep the blueprint's staged phrase relay and locked finale; use only two editorial statements and let the real home screen become the payoff.
 
 Scene 1 (0.0–1.7s): on a forest field, “ONE PDF.” lands alone as an oversized centered display beat; “ONE” arrives first, then “PDF.” completes the thought with a restrained kinetic beat slam. Centered hero, low density, one depth layer.
-Scene 2 (1.7–3.1s): “ANOTHER SUBSCRIPTION?” snaps beneath it as a smaller cream line while the live home screenshot rises behind at low contrast; asymmetric 60/40, three depth layers, the question remains dominant.
-Scene 3 (3.1–4.0s): the question clears and “NO.” locks in vivid green over the now-readable SignLocal upload card; hold the resolved promise still for the final half-second.
+Scene 2 (1.7–3.1s): the real home screenshot rises centered and unobstructed while “ANOTHER SUBSCRIPTION?” appears only in the empty bottom caption band; three depth layers, product screen dominant.
+Scene 3 (3.1–4.0s): the bottom caption changes to “NO SUBSCRIPTION.” in vivid green while the full SignLocal upload card remains readable above; hold both still for the final half-second.
 
 narrativeRole: Name the familiar annoyance and immediately reject it.
 keyMessage: Signing one PDF should not require another subscription.
@@ -60,8 +60,8 @@ keyMessage: Signing one PDF should not require another subscription.
 Adapt: preserve the calm single-card reveal and long held read; replace the abstract title card with the real home screen framed by the editorial surface.
 
 Scene 1 (0.0–1.4s): the real SignLocal home screen settles full and readable inside a cream editorial frame; a short coordinate target zoom lands on the “Private by design” area. Full-frame hero, three depth layers, UI is dominant.
-Scene 2 (1.4–3.2s): “SIGN IT HERE.” reveals in the upper third while the upload card remains visible below; the camera stops and the line carries the hierarchy.
-Scene 3 (3.2–5.0s): “IT STAYS HERE.” replaces the first line, with “STAYS” in vivid green; hold the final product screen and claim still for a deliberate breather.
+Scene 2 (1.4–3.2s): “SIGN IT HERE.” reveals inside the dedicated bottom caption band while the upload card stays unobstructed above; the camera stops and the product remains dominant.
+Scene 3 (3.2–5.0s): the bottom caption changes to “IT STAYS HERE.” with “STAYS” in vivid green; hold the final product screen and claim still for a deliberate breather.
 
 narrativeRole: Establish the privacy promise before asking the viewer to trust the workflow.
 keyMessage: The PDF stays in the browser.
@@ -87,7 +87,7 @@ Adapt: keep the cursor-led state change and camera chase; use two authentic scre
 Scene 1 (0.0–1.8s): begin on the real upload card with a custom cursor entering from the lower-right; the cursor targets “Choose PDF” while “1 · OPEN” appears as compact mono chrome. Centered UI hero, three depth layers.
 Scene 2 (1.8–3.1s): the cursor clicks with a restrained press ripple and the upload screen compresses into a quick paper-like wipe; do not introduce the result before the click.
 Scene 3 (3.1–5.5s): the real editor expands into place, showing the disposable PDF and signature controls; a multi-phase camera moves from the PDF title toward the signing panel. Full-frame UI, layered depth, editor dominant.
-Scene 4 (5.5–7.0s): “PDF OPEN.” arrives in vivid green along the upper third while the editor holds fully readable.
+Scene 4 (5.5–7.0s): “PDF OPEN.” arrives inside the empty bottom caption band while the editor holds fully readable above.
 
 narrativeRole: Prove the product begins with a familiar, low-friction action.
 keyMessage: Open a PDF directly in SignLocal.
@@ -113,7 +113,7 @@ Adapt: keep the held product surface and stepwise state progression; use the two
 Scene 1 (0.0–2.3s): the signed editor state fills the frame; a coordinate target zoom lands on the synthetic signature while “2 · SIGN” reveals in mono chrome. Full-frame product surface, three depth layers.
 Scene 2 (2.3–4.6s): the camera travels upward to the real download control while “3 · DOWNLOAD” replaces the first label; a custom cursor arrives only after the control becomes the focus.
 Scene 3 (4.6–6.2s): the cursor clicks with a press ripple; the signed screenshot slides into the real downloaded state only after the click.
-Scene 4 (6.2–8.0s): the actual success confirmation remains visible as “SIGNED COPY SAVED.” builds across the upper third, one phrase at a time.
+Scene 4 (6.2–8.0s): the actual success confirmation remains visible as “SIGNED COPY SAVED.” builds inside the bottom caption band, one phrase at a time.
 Scene 5 (8.0–9.0s): hold the completed real editor still; the cursor and camera stop so the proof reads cleanly.
 
 narrativeRole: Complete the product's full loop on screen.

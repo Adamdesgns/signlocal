@@ -51,10 +51,10 @@
 
     .one-pdf-screen-frame {
       position: absolute;
-      left: 360px;
-      top: 170px;
-      width: 650px;
-      height: 650px;
+      left: 190px;
+      top: 130px;
+      width: 700px;
+      height: 700px;
       overflow: hidden;
       border: 2px solid #c3e7d7;
       border-radius: 8px;
@@ -73,7 +73,7 @@
       position: absolute;
       inset: 0;
       background: #21533d;
-      opacity: 0.4;
+      opacity: 0.32;
     }
 
     .one-pdf-copy-layer {
@@ -133,50 +133,56 @@
 
     .one-pdf-question {
       position: absolute;
-      top: 465px;
-      left: 62px;
-      width: 570px;
+      top: auto;
+      bottom: 72px;
+      left: 80px;
+      width: 920px;
       color: #eef2ef;
-      font-size: 64px;
-      line-height: 0.95;
+      font-size: 58px;
+      line-height: 1;
       font-weight: 500;
       letter-spacing: -0.035em;
+      text-align: center;
       text-transform: uppercase;
-      transform-origin: 0 50%;
+      transform-origin: 50% 50%;
     }
 
     .one-pdf-question span {
-      display: block;
+      display: inline;
     }
 
     .one-pdf-question::after {
       content: "";
       display: block;
       width: 176px;
-      height: 10px;
-      margin-top: 31px;
+      height: 6px;
+      margin: 20px auto 0;
       background: #47e28b;
     }
 
     .one-pdf-no {
       position: absolute;
-      top: 248px;
-      left: 87px;
+      top: auto;
+      bottom: 72px;
+      left: 80px;
+      width: 920px;
       color: #47e28b;
-      font-size: 232px;
-      line-height: 0.9;
+      font-size: 58px;
+      line-height: 1;
       font-weight: 500;
-      letter-spacing: -0.065em;
-      transform-origin: 0 55%;
+      letter-spacing: -0.035em;
+      text-align: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
     }
 
     .one-pdf-no::after {
       content: "";
       position: absolute;
-      left: 9px;
-      bottom: -27px;
-      width: 230px;
-      height: 10px;
+      left: 360px;
+      bottom: -18px;
+      width: 200px;
+      height: 6px;
       background: #47e28b;
     }
 
@@ -220,7 +226,7 @@
         <span>subscription?</span>
       </div>
 
-      <div id="one-pdf-no" class="one-pdf-no">NO.</div>
+      <div id="one-pdf-no" class="one-pdf-no">NO SUBSCRIPTION.</div>
       <div id="one-pdf-edge-note" class="one-pdf-edge-note">Private by design</div>
     </div>
   </div>
@@ -245,8 +251,8 @@
 
       tl.fromTo(
         "#one-pdf-screen",
-        { autoAlpha: 0, x: 20, y: 104, scale: 0.84 },
-        { autoAlpha: 0.58, x: 20, y: 40, scale: 0.84, duration: 0.42, ease: "power3.out" },
+        { autoAlpha: 0, x: 235, y: 54, scale: 0.6 },
+        { autoAlpha: 0.58, x: 235, y: 12, scale: 0.6, duration: 0.42, ease: "power3.out" },
         1.68
       );
       tl.to(
@@ -270,14 +276,14 @@
       tl.set(["#one-pdf-hero", "#one-pdf-question", "#one-pdf-edge-note"], { autoAlpha: 0 }, 3.1);
       tl.to(
         "#one-pdf-screen",
-        { autoAlpha: 1, x: -245, y: -130, scale: 1.21, duration: 0.32, ease: "power3.out" },
+        { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: 0.42, ease: "power3.out" },
         3.1
       );
       tl.to("#one-pdf-screen-tint", { opacity: 0, duration: 0.2 }, 3.1);
       tl.fromTo(
         "#one-pdf-no",
-        { autoAlpha: 0, scale: 1.62, y: 44 },
-        { autoAlpha: 1, scale: 1, y: 0, duration: 0.38, ease: "back.out(2.1)" },
+        { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" },
         3.12
       );
 
