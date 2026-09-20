@@ -3,3 +3,12 @@ dist/
 .netlify/
 tmp/
 *.local
+
+# Facebook Sound Collection is licensed for Meta-platform use. Keep the raw
+# track and Meta-specific render local rather than publishing them on GitHub.
+videos/signlocal-launch/assets/music/lenticular-ross-lara.mp4
+videos/signlocal-launch/assets/music/lenticular-30s.m4a
+videos/signlocal-launch/renders/signlocal-launch-meta.mp4
+videos/signlocal-launch/renders/video-music-visual.mp4
+videos/signlocal-launch/snapshots/lenticular-waveform.png
+videos/signlocal-launch/snapshots/music-final-*.png

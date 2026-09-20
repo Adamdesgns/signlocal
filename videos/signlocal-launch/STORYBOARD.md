@@ -5,14 +5,14 @@ message: "Sign PDFs privately in your browser for free."
 arc: Demo Loop — friction → promise → proof → completion → CTA
 audience: people on X who need to sign a PDF without another subscription or document upload
 mode: autonomous
-music: none
+music: "Lenticular — Ross Lara (Facebook Sound Collection; Most Popular + No vocals)"
 ---
 
 ## Video direction
 
 Use the captured SignLocal palette exactly: ink `#17201B`, forest `#21533D`, cream `#EEF2EF`, and vivid green `#47E28B`. Display copy uses the frame's Inter display role; compact labels use its mono role. Every frame carries the restrained topbar spine from `frame.md`.
 
-Motion follows one deliberate action at a time with smooth long-tail settles. Because the video is silent, each on-screen phrase acts as its own cue: reveal each phrase or product action when its window begins, then hold long enough to read. Frames 2 and 5 are the visual breathers. Product screens stay legible and do the proof work; text never competes with the active control.
+Motion follows one deliberate action at a time with smooth long-tail settles. The selected music establishes the timing grid. Major scene changes land at 4.169s, 9.045s, 16.197s, and 24.974s; the final fade resolves at 30s. Each on-screen phrase remains long enough to read. Frames 2 and 5 are the visual breathers. Product screens stay legible and do the proof work; text never competes with the active control.
 
 Keep the bottom 17% clear of load-bearing content. Use flat paper-like surfaces, 2px rules, restrained 6–8px radii, and no shadows, gradients, glow, bokeh, fake metrics, browser chrome, or generic device mockups. Avoid both motion failures: no slideshow dump that freezes after the opening, and no screensaver motion where unrelated objects drift independently.
 
