@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "x-feed",
+      "confirmed_in": [
+        "signlocal-launch"
+      ],
+      "updated_at": "2026-09-20T14:37:41.756Z"
+    }
+  },
+  "sightings": {}
+}

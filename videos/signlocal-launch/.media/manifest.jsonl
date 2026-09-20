@@ -1,0 +1,5 @@
+{"id":"image_001","type":"image","path":"assets/signlocal-x-launch.png","source":"existing","description":"signlocal x launch","width":1536,"height":1024,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_002","type":"image","path":"assets/demo-01-home.png","source":"existing","description":"demo 01 home","width":1080,"height":1080,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_003","type":"image","path":"assets/demo-02-editor.png","source":"existing","description":"demo 02 editor","width":1080,"height":1080,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_004","type":"image","path":"assets/demo-03-signed.png","source":"existing","description":"demo 03 signed","width":1080,"height":1080,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_005","type":"image","path":"assets/demo-04-downloaded.png","source":"existing","description":"demo 04 downloaded","width":1080,"height":1080,"provenance":{"provider":"local","adopted":true}}

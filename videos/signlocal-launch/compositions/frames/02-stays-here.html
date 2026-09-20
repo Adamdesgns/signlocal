@@ -1,0 +1,245 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #17201b;
+    }
+
+    [class~="f02-stays-here-ground"],
+    [class~="f02-stays-here-scene"] {
+      position: absolute;
+      inset: 0;
+    }
+
+    [class~="f02-stays-here-ground"] {
+      background: #eef2ef;
+    }
+
+    [class~="f02-stays-here-scene"] {
+      overflow: hidden;
+    }
+
+    [class~="f02-stays-here-topbar"] {
+      position: absolute;
+      z-index: 8;
+      top: 28px;
+      left: 52px;
+      right: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #21533d;
+      color: #21533d;
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    [class~="f02-stays-here-index"] {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 2px solid #21533d;
+      border-radius: 50%;
+      letter-spacing: 0;
+    }
+
+    [class~="f02-stays-here-editorial-frame"] {
+      position: absolute;
+      z-index: 2;
+      inset: 82px 48px 62px;
+      overflow: hidden;
+      border: 2px solid #21533d;
+      border-radius: 8px;
+      background: #1a4130;
+    }
+
+    [class~="f02-stays-here-zoom-outer"],
+    [class~="f02-stays-here-zoom-inner"],
+    [class~="f02-stays-here-screen-wrap"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    [class~="f02-stays-here-zoom-outer"] {
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    [class~="f02-stays-here-zoom-inner"] {
+      will-change: transform;
+    }
+
+    [class~="f02-stays-here-screen"] {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    [class~="f02-stays-here-target"] {
+      position: absolute;
+      left: 21.8%;
+      top: 54.2%;
+      width: 56.5%;
+      height: 19.5%;
+      pointer-events: none;
+    }
+
+    [class~="f02-stays-here-claim-stage"] {
+      position: absolute;
+      z-index: 7;
+      top: 112px;
+      left: 82px;
+      right: 82px;
+      height: 212px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    [class~="f02-stays-here-claim"] {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border: 2px solid #eef2ef;
+      border-radius: 6px;
+      background: #1a4130;
+      color: #eef2ef;
+      font-family: sans-serif;
+      font-size: 83px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 0.94;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    [class~="f02-stays-here-accent"] {
+      color: #47e28b;
+      margin: 0 0.16em;
+    }
+
+    [class~="f02-stays-here-proof-rule"] {
+      position: absolute;
+      z-index: 6;
+      left: 82px;
+      right: 82px;
+      top: 340px;
+      height: 2px;
+      background: #47e28b;
+      transform-origin: 0 50%;
+    }
+  </style>
+
+<div id="root" data-composition-id="02-stays-here" data-width="1080" data-height="1080" data-duration="5.5">
+    <div id="f02-stays-here-ground" class="clip f02-stays-here-ground" data-start="0" data-duration="5.5" data-track-index="0"></div>
+
+    <div id="f02-stays-here-scene" class="clip f02-stays-here-scene" data-start="0" data-duration="5.5" data-track-index="1">
+      <div class="f02-stays-here-topbar">
+        <span>Private by design</span>
+        <span class="f02-stays-here-index">02</span>
+      </div>
+
+      <div class="f02-stays-here-editorial-frame" id="f02-stays-here-frame">
+        <div class="f02-stays-here-zoom-outer" id="f02-stays-here-zoom-outer">
+          <div class="f02-stays-here-zoom-inner" id="f02-stays-here-zoom-inner">
+            <div class="f02-stays-here-screen-wrap" id="f02-stays-here-screen-wrap">
+              <img class="f02-stays-here-screen" src="assets/demo-01-home.png" alt="SignLocal private PDF upload screen">
+              <div class="f02-stays-here-target" id="f02-stays-here-target" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="f02-stays-here-claim-stage">
+        <div class="f02-stays-here-claim" id="f02-stays-here-claim-one" data-layout-allow-overlap>SIGN IT HERE.</div>
+        <div class="f02-stays-here-claim" id="f02-stays-here-claim-two" data-layout-allow-overlap>IT <span class="f02-stays-here-accent">STAYS</span> HERE.</div>
+      </div>
+      <div class="f02-stays-here-proof-rule" id="f02-stays-here-proof-rule"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const outer = document.getElementById("f02-stays-here-zoom-outer");
+      const inner = document.getElementById("f02-stays-here-zoom-inner");
+      const frame = document.getElementById("f02-stays-here-frame");
+      const target = document.getElementById("f02-stays-here-target");
+      const claimOne = document.getElementById("f02-stays-here-claim-one");
+      const claimTwo = document.getElementById("f02-stays-here-claim-two");
+      const proofRule = document.getElementById("f02-stays-here-proof-rule");
+
+      const frameRect = frame.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const targetOffsetX = targetRect.left + targetRect.width / 2 - (frameRect.left + frameRect.width / 2);
+      const targetOffsetY = targetRect.top + targetRect.height / 2 - (frameRect.top + frameRect.height / 2);
+      const maxScale = Math.min(
+        (0.88 * frameRect.width) / targetRect.width,
+        (0.88 * frameRect.height) / targetRect.height
+      );
+      const zoomScale = Math.min(1.08, maxScale);
+
+      gsap.set([claimOne, claimTwo], { opacity: 0 });
+      gsap.set(proofRule, { scaleX: 0 });
+
+      tl.fromTo(
+        frame,
+        { opacity: 0.72, scale: 0.965 },
+        { opacity: 1, scale: 1, duration: 0.48, ease: "power3.out" },
+        0
+      );
+
+      tl.fromTo(
+        outer,
+        { scale: 1.0 },
+        { scale: zoomScale, duration: 0.9, ease: "power3.inOut" },
+        0.38
+      );
+      tl.fromTo(
+        inner,
+        { x: 0, y: 0 },
+        { x: -targetOffsetX, y: -targetOffsetY, duration: 0.9, ease: "power3.inOut" },
+        0.38
+      );
+
+      tl.fromTo(
+        claimOne,
+        { opacity: 0, y: 24, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "power3.out" },
+        1.4
+      );
+      tl.to(proofRule, { scaleX: 1, duration: 0.52, ease: "power2.out" }, 1.5);
+
+      tl.to(
+        claimOne,
+        { opacity: 0, y: -28, duration: 0.34, ease: "power2.in" },
+        3.2
+      );
+      tl.fromTo(
+        claimTwo,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        3.28
+      );
+
+      window.__timelines = window.__timelines || {};
+window.__timelines["02-stays-here"] = tl;
+    })();
+  </script>
+</template>

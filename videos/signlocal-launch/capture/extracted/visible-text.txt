@@ -1,0 +1,15 @@
+[span] SignLocal
+[span] by Adam Designs
+[div] Your PDF never leaves your device
+[h1] Sign a PDF.
+[em] Keep it private.
+[p] Add text, dates, checkmarks, and your handwritten signature. No account. No upload. No Adobe subscription.
+[strong] Choose a PDF
+[span] or drop it here · up to 25 MB
+[b] 100% local
+[span] Editing happens in your browser
+[b] No tracking
+[span] No analytics, accounts, or cookies
+[b] Free to use
+[span] Download the finished PDF instantly
+[footer] Built by Adam Designs · Private by design

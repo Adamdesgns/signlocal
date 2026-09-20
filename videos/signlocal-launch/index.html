@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #EEF2EF;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1080"
+      data-height="1080"
+    >
+      <div
+        id="el-01-one-pdf"
+        class="scene"
+        data-composition-id="01-one-pdf"
+        data-composition-src="compositions/frames/01-one-pdf.html"
+        data-start="0"
+        data-duration="4.4"
+        data-track-index="0"
+      ></div>
+
+      <div
+        id="el-02-stays-here"
+        class="scene"
+        data-composition-id="02-stays-here"
+        data-composition-src="compositions/frames/02-stays-here.html"
+        data-start="4"
+        data-duration="5.5"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-03-open-pdf"
+        class="scene"
+        data-composition-id="03-open-pdf"
+        data-composition-src="compositions/frames/03-open-pdf.html"
+        data-start="9"
+        data-duration="7.5"
+        data-track-index="0"
+      ></div>
+
+      <div
+        id="el-04-sign-download"
+        class="scene"
+        data-composition-id="04-sign-download"
+        data-composition-src="compositions/frames/04-sign-download.html"
+        data-start="16"
+        data-duration="9.6"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-05-ready-now"
+        class="scene"
+        data-composition-id="05-ready-now"
+        data-composition-src="compositions/frames/05-ready-now.html"
+        data-start="25"
+        data-duration="5"
+        data-track-index="0"
+      ></div>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01-one-pdf", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 4);
+        tl.fromTo("#el-02-stays-here", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 4);
+        tl.to("#el-02-stays-here", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 9);
+        tl.fromTo("#el-03-open-pdf", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 9);
+        tl.to("#el-03-open-pdf", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 16);
+        tl.fromTo("#el-04-sign-download", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 16);
+        tl.to("#el-04-sign-download", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 25);
+        tl.fromTo("#el-05-ready-now", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 25);
+        tl.to({}, { duration: 30 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
+    </script>
+  </body>
+</html>

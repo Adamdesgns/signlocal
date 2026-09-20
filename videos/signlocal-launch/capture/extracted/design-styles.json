@@ -1,0 +1,82 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Inter",
+      "fontSize": "92px",
+      "fontWeight": "700",
+      "lineHeight": "85.56px",
+      "letterSpacing": "-5.98px",
+      "color": "#F2F7F3",
+      "sampleText": "Sign a PDF.Keep it private."
+    },
+    {
+      "role": "body",
+      "fontFamily": "Inter",
+      "fontSize": "21px",
+      "fontWeight": "400",
+      "lineHeight": "32.55px",
+      "letterSpacing": "normal",
+      "color": "#B6C5BB",
+      "sampleText": "Add text, dates, checkmarks, and your handwritten signature."
+    }
+  ],
+  "spacing": {
+    "observed": [
+      4,
+      8,
+      9,
+      10,
+      22,
+      28,
+      60
+    ],
+    "baseUnit": 4
+  },
+  "radius": [],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0.467) 0px 24px 60px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [],
+  "cards": [],
+  "nav": {
+    "label": "navigation",
+    "background": "transparent",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#F2F7F3",
+    "padding": "22px 0px",
+    "borderRadius": "0px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "76px"
+  },
+  "chips": [
+    {
+      "label": "Your PDF never leaves yo",
+      "background": "#47E28B",
+      "color": "#AEF4CA",
+      "padding": "8px 13px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(71, 226, 139, 0.333)",
+      "boxShadow": "none",
+      "fontSize": "13px",
+      "fontWeight": "750",
+      "height": "35px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "radial-gradient(circle at 50% -20%, rgb(36, 91, 67) 0px, rgb(12, 29, 21) 42%, rgb(7, 17, 13) 75%)",
+      "area": 2073600
+    }
+  ],
+  "glass": []
+}

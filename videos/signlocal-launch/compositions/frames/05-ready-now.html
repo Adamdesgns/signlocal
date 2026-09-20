@@ -1,0 +1,295 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #eef2ef;
+      font-family: sans-serif;
+    }
+
+    #root * {
+      box-sizing: border-box;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+    }
+
+    .ready-now-ground {
+      z-index: 0;
+      background: #1a4130;
+    }
+
+    .ready-now-art-layer {
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .ready-now-art {
+      position: absolute;
+      inset: -38px;
+      width: calc(100% + 76px);
+      height: calc(100% + 76px);
+      object-fit: cover;
+      object-position: 50% 48%;
+      opacity: 0.48;
+      transform-origin: 50% 48%;
+    }
+
+    .ready-now-art-shade {
+      position: absolute;
+      inset: 0;
+      background: #21533d;
+      opacity: 0.42;
+    }
+
+    .ready-now-paper-field {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 132px;
+      height: 690px;
+      border: 2px solid #c3e7d7;
+      border-radius: 8px;
+      background: #17201b;
+      opacity: 0.64;
+    }
+
+    .ready-now-copy-layer {
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .ready-now-topbar {
+      position: absolute;
+      top: 45px;
+      left: 54px;
+      right: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #c3e7d7;
+      font-family: monospace;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .ready-now-monogram {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border: 2px solid #47e28b;
+      border-radius: 50%;
+      color: #47e28b;
+      letter-spacing: 0;
+    }
+
+    .ready-now-lockup {
+      position: absolute;
+      top: 210px;
+      left: 90px;
+      width: 900px;
+      text-align: center;
+    }
+
+    .ready-now-brand {
+      color: #eef2ef;
+      font-size: 122px;
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      transform-origin: 50% 50%;
+    }
+
+    .ready-now-rule {
+      width: 410px;
+      height: 2px;
+      margin: 34px auto 0;
+      background: #47e28b;
+      transform-origin: 50% 50%;
+    }
+
+    .ready-now-promise {
+      position: absolute;
+      top: 420px;
+      left: 90px;
+      width: 900px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 18px;
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .ready-now-beat {
+      display: inline-block;
+      transform-origin: 50% 50%;
+    }
+
+    .ready-now-beat-accent {
+      color: #47e28b;
+    }
+
+    .ready-now-url-strip {
+      position: absolute;
+      top: 594px;
+      left: 116px;
+      width: 848px;
+      height: 126px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #eef2ef;
+      color: #17201b;
+      transform-origin: 50% 50%;
+    }
+
+    .ready-now-url-strip::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18px;
+      height: 100%;
+      background: #47e28b;
+    }
+
+    .ready-now-url {
+      font-family: monospace;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+      white-space: nowrap;
+    }
+
+    .ready-now-live {
+      position: absolute;
+      top: 752px;
+      left: 0;
+      width: 100%;
+      color: #c3e7d7;
+      font-family: monospace;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  </style>
+
+<div id="root" data-composition-id="05-ready-now" data-width="1080" data-height="1080">
+    <div id="ready-now-ground" class="clip ready-now-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <div id="ready-now-art-layer" class="clip ready-now-art-layer" data-start="0" data-duration="5" data-track-index="1">
+      <img id="f05-ready-now-art" class="ready-now-art" src="assets/signlocal-x-launch.png" alt="A signed document moving securely into a local laptop">
+      <div class="ready-now-art-shade"></div>
+      <div id="f05-ready-now-field" class="ready-now-paper-field"></div>
+    </div>
+
+    <div id="ready-now-copy-layer" class="clip ready-now-copy-layer" data-start="0" data-duration="5" data-track-index="2">
+      <div class="ready-now-topbar">
+        <span>SignLocal / launch</span>
+        <span class="ready-now-monogram">SL</span>
+      </div>
+
+      <div class="ready-now-lockup">
+        <div id="f05-ready-now-brand" class="ready-now-brand">SIGNLOCAL</div>
+        <div id="f05-ready-now-rule" class="ready-now-rule"></div>
+      </div>
+
+      <div class="ready-now-promise" aria-label="Free. Private. Ready now.">
+        <span id="f05-ready-now-free" class="ready-now-beat">FREE.</span>
+        <span id="f05-ready-now-private" class="ready-now-beat">PRIVATE.</span>
+        <span id="f05-ready-now-ready" class="ready-now-beat ready-now-beat-accent">READY NOW.</span>
+      </div>
+
+      <div id="f05-ready-now-url-strip" class="ready-now-url-strip">
+        <span class="ready-now-url">signlocal-adam-designs.netlify.app</span>
+      </div>
+      <div id="f05-ready-now-live" class="ready-now-live">Free · private · live now</div>
+    </div>
+  </div>
+
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        "#f05-ready-now-art",
+        { autoAlpha: 0, scale: 1.12, filter: "blur(16px)" },
+        { autoAlpha: 0.48, scale: 1, filter: "blur(0px)", duration: 1.35, ease: "power3.out" },
+        0
+      );
+      tl.fromTo(
+        "#f05-ready-now-field",
+        { autoAlpha: 0, scale: 0.96 },
+        { autoAlpha: 0.64, scale: 1, duration: 0.72, ease: "power3.out" },
+        0.08
+      );
+      tl.fromTo(
+        "#f05-ready-now-brand",
+        { autoAlpha: 0, y: 34, scale: 0.95 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.68, ease: "power3.out" },
+        0.22
+      );
+      tl.fromTo(
+        "#f05-ready-now-rule",
+        { autoAlpha: 0, scaleX: 0.2 },
+        { autoAlpha: 1, scaleX: 1, duration: 0.52, ease: "power3.out" },
+        0.78
+      );
+
+      tl.fromTo(
+        "#f05-ready-now-free",
+        { autoAlpha: 0, y: 24 },
+        { autoAlpha: 1, y: 0, duration: 0.36, ease: "power3.out" },
+        1.6
+      );
+      tl.fromTo(
+        "#f05-ready-now-private",
+        { autoAlpha: 0, y: 24 },
+        { autoAlpha: 1, y: 0, duration: 0.36, ease: "power3.out" },
+        2.02
+      );
+      tl.fromTo(
+        "#f05-ready-now-ready",
+        { autoAlpha: 0, y: 24, scale: 0.96 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.42, ease: "power3.out" },
+        2.44
+      );
+
+      tl.fromTo(
+        "#f05-ready-now-url-strip",
+        { autoAlpha: 0, y: 34, scale: 0.97 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.58, ease: "power3.out" },
+        3
+      );
+      tl.fromTo(
+        "#f05-ready-now-live",
+        { autoAlpha: 0, y: 14 },
+        { autoAlpha: 1, y: 0, duration: 0.38, ease: "power2.out" },
+        3.28
+      );
+
+      window.__timelines = window.__timelines || {};
+window.__timelines["05-ready-now"] = tl;
+    })();
+  </script>
+</template>
