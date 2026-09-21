@@ -53,6 +53,15 @@ h1 em { color: var(--accent); font-style: normal; }
 .trust-grid div { display: flex; flex-direction: column; gap: 4px; }
 .trust-grid b { font-size: 13.5px; font-weight: 650; }
 .trust-grid span { color: var(--faint); font-size: 12px; line-height: 1.45; }
+.pitch { width: min(700px, calc(100% - 36px)); margin: 0 auto; padding: 16px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.pitch > div { display: flex; flex-direction: column; gap: 3px; }
+.pitch b { font-size: 14px; font-weight: 650; }
+.pitch span { color: var(--muted); font-size: 13px; }
+.pitch-links { flex-direction: row !important; align-items: center; gap: 8px; }
+.pitch-links a { padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 9px; color: var(--text); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.pitch-links a:hover { border-color: #ffffff3d; background: #ffffff0f; }
+.pitch-links a.pitch-cta { border-color: #47e28b4d; color: var(--accent); }
+.pitch-links a.pitch-cta:hover { border-color: var(--accent); background: #47e28b14; }
 footer { padding: 22px; text-align: center; color: var(--faint); font-size: 12px; }
 .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 50; max-width: min(520px, calc(100% - 32px)); padding: 12px 16px; border: 1px solid #ff9d9033; border-radius: 11px; background: #241a18; color: var(--danger); font-size: 13px; box-shadow: 0 16px 40px #0009; }
 
@@ -140,4 +149,6 @@ footer { padding: 22px; text-align: center; color: var(--faint); font-size: 12px
   .intake-actions { grid-template-columns: 1fr; gap: 8px; }
   .intake-button { flex-direction: row; justify-content: flex-start; padding: 9px 14px; }
   .intake-button .upload-icon { width: 34px; height: 34px; border-radius: 10px; font-size: 18px; }
+  .pitch { flex-direction: column; align-items: stretch; text-align: center; gap: 12px; }
+  .pitch-links a { flex: 1; text-align: center; }
 }

@@ -49,6 +49,16 @@ export default function DocumentIntake({ onPdf, onPhotos }) {
         <div><b>Free to use</b><span>Download the finished PDF instantly</span></div>
       </div>
     </section>
+    <section className="pitch">
+      <div>
+        <b>I build apps like this one.</b>
+        <span>SignLocal is free. Need something custom for your business?</span>
+      </div>
+      <div className="pitch-links">
+        <a className="pitch-cta" href="https://adamdesgns.com" target="_blank" rel="noopener noreferrer">adamdesgns.com</a>
+        <a href="https://x.com/adamdesgns" target="_blank" rel="noopener noreferrer">@adamdesgns</a>
+      </div>
+    </section>
     <footer>Built by Adam Designs · Private by design</footer>
   </main>;
 }
