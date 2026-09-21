@@ -2,6 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import * as pdfjs from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import DocumentIntake from './components/DocumentIntake.jsx';
+import PhotoReview from './components/PhotoReview.jsx';
+import { checkImageFile, movePage, rotatePage, removePage, releasePages, preparePhoto } from './lib/imagePipeline.js';
+import { imagesToPdf } from './lib/imagesToPdf.js';
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 
@@ -58,36 +62,6 @@ function SignaturePad({ onChange }) {
   </div>;
 }
 
-function UploadScreen({ onFile }) {
-  const [dragging, setDragging] = useState(false);
-  const inputRef = useRef(null);
-
-  const accept = (file) => {
-    if (file) onFile(file);
-  };
-
-  return <main className="landing">
-    <nav className="nav"><div className="brand"><span className="brand-mark">S</span><span>SignLocal</span></div><span className="byline">by Adam Designs</span></nav>
-    <section className="hero">
-      <div className="privacy-pill"><span className="pulse" /> Your PDF never leaves your device</div>
-      <h1>Sign a PDF.<br /><em>Keep it private.</em></h1>
-      <p className="lede">Add text, dates, checkmarks, and your handwritten signature. No account. No upload. No Adobe subscription.</p>
-      <div className={`dropzone ${dragging ? 'dragging' : ''}`} onDragOver={(e) => { e.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={(e) => { e.preventDefault(); setDragging(false); accept(e.dataTransfer.files[0]); }} onClick={() => inputRef.current.click()}>
-        <input ref={inputRef} type="file" accept="application/pdf,.pdf" onChange={(e) => accept(e.target.files[0])} hidden />
-        <div className="upload-icon">↥</div>
-        <strong>Choose a PDF</strong>
-        <span>or drop it here · up to 25 MB</span>
-      </div>
-      <div className="trust-grid">
-        <div><b>100% local</b><span>Editing happens in your browser</span></div>
-        <div><b>No tracking</b><span>No analytics, accounts, or cookies</span></div>
-        <div><b>Free to use</b><span>Download the finished PDF instantly</span></div>
-      </div>
-    </section>
-    <footer>Built by Adam Designs · Private by design</footer>
-  </main>;
-}
-
 export default function App() {
   const canvasRef = useRef(null);
   const viewerRef = useRef(null);
@@ -106,6 +80,8 @@ export default function App() {
   const [signature, setSignature] = useState('');
   const [message, setMessage] = useState('');
   const [downloading, setDownloading] = useState(false);
+  const [photoPages, setPhotoPages] = useState([]);
+  const [converting, setConverting] = useState(false);
   const dragRef = useRef(null);
 
   const pageItems = useMemo(() => items.filter((item) => item.page === pageNumber), [items, pageNumber]);
@@ -115,18 +91,54 @@ export default function App() {
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) return setMessage('Choose a PDF file.');
     if (file.size > MAX_BYTES) return setMessage('That PDF is larger than 25 MB.');
     try {
-      const buffer = await file.arrayBuffer();
-      const bytes = new Uint8Array(buffer);
-      const view = await pdfjs.getDocument({ data: new Uint8Array(buffer.slice(0)) }).promise;
-      setFileName(file.name);
-      setPdfBytes(bytes);
-      setPdfView(view);
-      setPageNumber(1);
-      setItems([]);
-      setMessage('');
+      await openPdfBytes(new Uint8Array(await file.arrayBuffer()), file.name);
     } catch {
       setMessage('This PDF could not be opened. Password-protected PDFs are not supported yet.');
     }
+  };
+
+  // The one way into the editor, for uploaded PDFs and PDFs made from photos.
+  const openPdfBytes = async (bytes, name) => {
+    const view = await pdfjs.getDocument({ data: bytes.slice() }).promise; // pdf.js takes ownership of its copy
+    setFileName(name);
+    setPdfBytes(bytes);
+    setPdfView(view);
+    setPageNumber(1);
+    setItems([]);
+    setMessage('');
+  };
+
+  const addPhotos = (files) => {
+    const problems = [];
+    const fresh = [];
+    for (const file of files) {
+      const check = checkImageFile(file);
+      if (check.ok) fresh.push({ id: uid(), file, url: URL.createObjectURL(file), rotation: 0 });
+      else problems.push(check.message);
+    }
+    setMessage(problems.join(' '));
+    if (fresh.length) setPhotoPages((current) => [...current, ...fresh]);
+  };
+
+  const clearPhotos = () => {
+    releasePages(photoPages);
+    setPhotoPages([]);
+    setMessage('');
+  };
+
+  const buildFromPhotos = async () => {
+    setConverting(true);
+    setMessage('');
+    try {
+      const prepared = [];
+      for (const page of photoPages) prepared.push(await preparePhoto(page.file, page.rotation));
+      const bytes = await imagesToPdf(prepared);
+      await openPdfBytes(bytes, 'scanned-document.pdf');
+      releasePages(photoPages);
+      setPhotoPages([]);
+    } catch {
+      setMessage('One of these photos could not be read. Remove it or retake it, then try again.');
+    } finally { setConverting(false); }
   };
 
   useEffect(() => {
@@ -240,14 +252,18 @@ export default function App() {
     } finally { setDownloading(false); }
   };
 
-  if (!pdfView) return <><UploadScreen onFile={loadFile} />{message && <div className="toast error">{message}</div>}</>;
+  const toast = message && <div className="toast error" role="alert">{message}</div>;
+
+  if (!pdfView && photoPages.length) return <><PhotoReview pages={photoPages} busy={converting} onAdd={addPhotos} onMove={(id, by) => setPhotoPages((current) => movePage(current, id, by))} onRotate={(id, by) => setPhotoPages((current) => rotatePage(current, id, by))} onRemove={(id) => setPhotoPages((current) => removePage(current, id))} onCancel={clearPhotos} onDone={buildFromPhotos} />{toast}</>;
+
+  if (!pdfView) return <><DocumentIntake onPdf={loadFile} onPhotos={addPhotos} />{toast}</>;
 
   return <div className="app-shell">
     <header className="app-header">
       <div className="brand"><span className="brand-mark">S</span><span>SignLocal</span></div>
       <div className="file-chip" title={fileName}>{fileName}</div>
       <div className="header-actions">
-        <button className="ghost" onClick={() => { setPdfView(null); setPdfBytes(null); setItems([]); }}>New PDF</button>
+        <button className="ghost" onClick={() => { pdfView.destroy(); setPdfView(null); setPdfBytes(null); setItems([]); setMessage(''); }}>New document</button>
         <button className="download" onClick={download} disabled={downloading}>{downloading ? 'Building…' : 'Download PDF'}</button>
       </div>
     </header>
