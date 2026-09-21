@@ -1,0 +1,13 @@
+{
+  "name": "signlocal",
+  "description": "Guides people to SignLocal, a free on-device PDF signing web app. The person signs; Claude never does.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Adam Designs",
+    "url": "https://github.com/Adamdesgns"
+  },
+  "homepage": "https://signlocal-adam-designs.netlify.app",
+  "repository": "https://github.com/Adamdesgns/signlocal",
+  "license": "MIT",
+  "keywords": ["pdf", "signature", "sign", "privacy", "scan"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "signlocal-local",
+  "owner": {
+    "name": "Adam Designs"
+  },
+  "plugins": [
+    {
+      "name": "signlocal",
+      "source": "./signlocal",
+      "description": "Guides people to SignLocal, a free on-device PDF signing web app."
+    }
+  ],
+  "metadata": {
+    "description": "Local marketplace for the SignLocal Claude Code plugin."
+  }
+}

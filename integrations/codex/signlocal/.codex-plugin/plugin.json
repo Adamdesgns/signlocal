@@ -1,0 +1,28 @@
+{
+  "name": "signlocal",
+  "version": "0.1.0",
+  "description": "Guides people to SignLocal, a free on-device PDF signing web app. The person signs; the assistant never does.",
+  "author": {
+    "name": "Adam Designs",
+    "url": "https://github.com/Adamdesgns"
+  },
+  "homepage": "https://signlocal-adam-designs.netlify.app",
+  "repository": "https://github.com/Adamdesgns/signlocal",
+  "license": "MIT",
+  "keywords": ["pdf", "signature", "sign", "privacy", "scan"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SignLocal",
+    "shortDescription": "Sign PDFs privately, on your own device.",
+    "longDescription": "Points you to SignLocal, a free web app for signing PDFs and turning photos of paper documents into PDFs. Everything runs in your browser: no account, no upload, no tracking. You draw and place your own signature; Codex never signs for you.",
+    "developerName": "Adam Designs",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://signlocal-adam-designs.netlify.app",
+    "defaultPrompt": [
+      "Help me sign a PDF privately.",
+      "Turn photos of a paper form into a PDF I can sign."
+    ],
+    "brandColor": "#47E28B"
+  }
+}
